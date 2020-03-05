@@ -47,11 +47,11 @@ d3.json(url, function(data) {
   function createMap(earthquakes) {
     // Various Map Layers (Mapbox API) for user selection
     var satelliteMap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/256/{z}/{x}/{y}?" +
-      "access_token=pk.eyJ1IjoiY2ZlcnJhcmVuIiwiYSI6ImNqaHhvcW9sNjBlMmwzcHBkYzk0YXRsZ2cifQ.lzNNrQqp-E85khEiWhgq4Q");
+      "access_token =sk.eyJ1IjoiYWJ1ZWRlIiwiYSI6ImNrN2UxcHVvNTB2cjQzZm15MnphYXJoNGoifQ.hlODKxhx2vfDXS3_YEnm1Q");
     var grayScale = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/outdoors-v10/tiles/256/{z}/{x}/{y}?" +
-      "access_token=pk.eyJ1IjoiY2ZlcnJhcmVuIiwiYSI6ImNqaHhvcW9sNjBlMmwzcHBkYzk0YXRsZ2cifQ.lzNNrQqp-E85khEiWhgq4Q");
+      "access_token=sk.eyJ1IjoiYWJ1ZWRlIiwiYSI6ImNrN2UxcHVvNTB2cjQzZm15MnphYXJoNGoifQ.hlODKxhx2vfDXS3_YEnm1Q");
     var outdoors = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/outdoors-v10/tiles/256/{z}/{x}/{y}?" +
-    "access_token=pk.eyJ1IjoiY2ZlcnJhcmVuIiwiYSI6ImNqaHhvcW9sNjBlMmwzcHBkYzk0YXRsZ2cifQ.lzNNrQqp-E85khEiWhgq4Q");
+    "access_token=sk.eyJ1IjoiYWJ1ZWRlIiwiYSI6ImNrN2UxcHVvNTB2cjQzZm15MnphYXJoNGoifQ.hlODKxhx2vfDXS3_YEnm1Q");
   
   
     // BaseMaps that users can select
