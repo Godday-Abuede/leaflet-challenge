@@ -1,17 +1,17 @@
-//  Store our API endpoint inside queryUrl
+//  Store our API endpoints
 var url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson";
 var faultLines = "https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json"
 // Perform a GET request to the query URL
 d3.json(url, function(data) {
-    // Once we get a response, send the data.features object to the createFeatures function
+    // Send data.features object to the createFeatures function
     // console.log(data);
     createFeatures(data.features);
   });
 
   function createFeatures(earthquakeData) {
 
-    // Define a function we want to run once for each feature in the features array
-    // Give each feature a popup describing the place and time of the earthquake
+    // Function to run in the features array
+    // pop-up showing info about the earthquake
     function onEachFeature(feature, layer) {
       layer.bindPopup("<h3>" + feature.properties.place +
         "</h3><hr><p>" + new Date(feature.properties.time) + "</p>"+
@@ -47,11 +47,11 @@ d3.json(url, function(data) {
   function createMap(earthquakes) {
     // Various Map Layers (Mapbox API) for user selection
     var satelliteMap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/256/{z}/{x}/{y}?" +
-      "access_token =sk.eyJ1IjoiYWJ1ZWRlIiwiYSI6ImNrN2UxcHVvNTB2cjQzZm15MnphYXJoNGoifQ.hlODKxhx2vfDXS3_YEnm1Q");
+      "access_token=pk.eyJ1IjoiY2ZlcnJhcmVuIiwiYSI6ImNqaHhvcW9sNjBlMmwzcHBkYzk0YXRsZ2cifQ.lzNNrQqp-E85khEiWhgq4Q");
     var grayScale = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/outdoors-v10/tiles/256/{z}/{x}/{y}?" +
-      "access_token=sk.eyJ1IjoiYWJ1ZWRlIiwiYSI6ImNrN2UxcHVvNTB2cjQzZm15MnphYXJoNGoifQ.hlODKxhx2vfDXS3_YEnm1Q");
+      "access_token=pk.eyJ1IjoiY2ZlcnJhcmVuIiwiYSI6ImNqaHhvcW9sNjBlMmwzcHBkYzk0YXRsZ2cifQ.lzNNrQqp-E85khEiWhgq4Q");
     var outdoors = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/outdoors-v10/tiles/256/{z}/{x}/{y}?" +
-    "access_token=sk.eyJ1IjoiYWJ1ZWRlIiwiYSI6ImNrN2UxcHVvNTB2cjQzZm15MnphYXJoNGoifQ.hlODKxhx2vfDXS3_YEnm1Q");
+    "access_token=pk.eyJ1IjoiY2ZlcnJhcmVuIiwiYSI6ImNqaHhvcW9sNjBlMmwzcHBkYzk0YXRsZ2cifQ.lzNNrQqp-E85khEiWhgq4Q");
   
   
     // BaseMaps that users can select
@@ -72,9 +72,9 @@ d3.json(url, function(data) {
   
     // Create our map, giving it the streetmap and earthquakes layers to display on load
     var myMap = L.map("map", {
-      center: [41.881832, -87.62317],
-      zoom: 2.5,
-      layers: [satelliteMap, grayScale, outdoors]
+      center: [41.881832, -95.71],
+      zoom: 4,
+      layers: [satelliteMap, faultLines, outdoors]
     
     });
   
